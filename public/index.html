@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Desktop</title>
+    <link href="css/pageStyle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="field"></div>
+<div id="send"></div>
+<div id="content"></div>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript">
+
+    var socket = io.connect();
+    socket.emit('msg', 'connected');
+
+    socket.on('send data', function (data) {
+        document.getElementById("sensorType").innerHTML = data.deviceSensor;
+        document.getElementById("sensorDataX").innerHTML = data.deviceSensor + " X: " + data.X;
+        document.getElementById("sensorDataY").innerHTML = data.deviceSensor + " Y: " + data.Y;
+        document.getElementById("sensorDataZ").innerHTML = data.deviceSensor + " Z: " + data.Z;
+        document.getElementById("sensorDataTime").innerHTML = "Timestamp: " + data.now;
+    })
+</script>
+<div id="sensorType">Sensor</div>
+<div id="sensorDataX">Axis X: <span>null</span></div>
+<div id="sensorDataY">Axis Y: <span>null</span></div>
+<div id="sensorDataZ">Axis Z: <span>null</span></div>
+<div id="sensorDataTime">Timestamp: <span>null</span></div>
+</body>
+</html>

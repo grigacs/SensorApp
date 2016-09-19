@@ -1,0 +1,25 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+#sensorType{
+    width: 100%;
+    background: linear-gradient(to right, #3071da, #4888f1);
+    padding: 20px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+#sensorDataX, #sensorDataY, #sensorDataZ, #sensorDataTime{
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+span{
+    font-style: oblique;
+    color:darkorange;
+    font-weight: 700;
+}
